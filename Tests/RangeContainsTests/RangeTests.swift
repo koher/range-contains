@@ -152,6 +152,27 @@ class RangeTests: XCTestCase {
                 XCTAssertFalse(a.contains(b))
                 XCTAssertFalse(CountableClosedRange(b).reduce(true) { $0 && a.contains($1) })
             }
+
+            do {
+                let b: CountableRange<Int> = 11..<11
+                XCTAssertTrue(a.contains(b))
+                XCTAssertTrue(b.reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: CountableClosedRange<Int> = 11...11
+                XCTAssertFalse(a.contains(b))
+                XCTAssertFalse(b.reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: Range<Int> = 11..<11
+                XCTAssertTrue(a.contains(b))
+                XCTAssertTrue(CountableRange(b).reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: ClosedRange<Int> = 11...11
+                XCTAssertFalse(a.contains(b))
+                XCTAssertFalse(CountableClosedRange(b).reduce(true) { $0 && a.contains($1) })
+            }
         }
     }
 
@@ -302,6 +323,27 @@ class RangeTests: XCTestCase {
             }
             do {
                 let b: ClosedRange<Int> = 3...9
+                XCTAssertFalse(a.contains(b))
+                XCTAssertFalse(CountableClosedRange(b).reduce(true) { $0 && a.contains($1) })
+            }
+
+            do {
+                let b: CountableRange<Int> = 11..<11
+                XCTAssertTrue(a.contains(b))
+                XCTAssertTrue(b.reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: CountableClosedRange<Int> = 11...11
+                XCTAssertFalse(a.contains(b))
+                XCTAssertFalse(b.reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: Range<Int> = 11..<11
+                XCTAssertTrue(a.contains(b))
+                XCTAssertTrue(CountableRange(b).reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: ClosedRange<Int> = 11...11
                 XCTAssertFalse(a.contains(b))
                 XCTAssertFalse(CountableClosedRange(b).reduce(true) { $0 && a.contains($1) })
             }
@@ -458,6 +500,27 @@ class RangeTests: XCTestCase {
                 XCTAssertFalse(a.contains(b))
                 XCTAssertFalse(CountableClosedRange(b).reduce(true) { $0 && a.contains($1) })
             }
+
+            do {
+                let b: CountableRange<Int> = 11..<11
+                XCTAssertTrue(a.contains(b))
+                XCTAssertTrue(b.reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: CountableClosedRange<Int> = 11...11
+                XCTAssertFalse(a.contains(b))
+                XCTAssertFalse(b.reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: Range<Int> = 11..<11
+                XCTAssertTrue(a.contains(b))
+                XCTAssertTrue(CountableRange(b).reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: ClosedRange<Int> = 11...11
+                XCTAssertFalse(a.contains(b))
+                XCTAssertFalse(CountableClosedRange(b).reduce(true) { $0 && a.contains($1) })
+            }
         }
 
         do {
@@ -523,6 +586,15 @@ class RangeTests: XCTestCase {
             }
             do {
                 let b: ClosedRange<Float> = 3...9
+                XCTAssertFalse(a.contains(b))
+            }
+
+            do {
+                let b: Range<Float> = 11..<11
+                XCTAssertTrue(a.contains(b))
+            }
+            do {
+                let b: ClosedRange<Float> = 11...11
                 XCTAssertFalse(a.contains(b))
             }
         }
@@ -678,6 +750,27 @@ class RangeTests: XCTestCase {
                 XCTAssertFalse(a.contains(b))
                 XCTAssertFalse(CountableClosedRange(b).reduce(true) { $0 && a.contains($1) })
             }
+
+            do {
+                let b: CountableRange<Int> = 11..<11
+                XCTAssertTrue(a.contains(b))
+                XCTAssertTrue(b.reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: CountableClosedRange<Int> = 11...11
+                XCTAssertFalse(a.contains(b))
+                XCTAssertFalse(b.reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: Range<Int> = 11..<11
+                XCTAssertTrue(a.contains(b))
+                XCTAssertTrue(CountableRange(b).reduce(true) { $0 && a.contains($1) })
+            }
+            do {
+                let b: ClosedRange<Int> = 11...11
+                XCTAssertFalse(a.contains(b))
+                XCTAssertFalse(CountableClosedRange(b).reduce(true) { $0 && a.contains($1) })
+            }
         }
 
         do {
@@ -743,6 +836,15 @@ class RangeTests: XCTestCase {
             }
             do {
                 let b: ClosedRange<Float> = 3...9
+                XCTAssertFalse(a.contains(b))
+            }
+
+            do {
+                let b: Range<Float> = 11..<11
+                XCTAssertTrue(a.contains(b))
+            }
+            do {
+                let b: ClosedRange<Float> = 11...11
                 XCTAssertFalse(a.contains(b))
             }
         }

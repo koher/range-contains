@@ -22,13 +22,15 @@ class RangeTests: XCTestCase {
         %     end
         do {
             let a: ${range_type_1}<${bound_type}> = 2${'...' if closed_1 else '..<'}7
-            % for lower, upper in [(3, 5), (2, 5), (3, 7), (2, 7), (1, 5), (3, 8), (3, 9)]:
+            % for lower, upper in [(3, 5), (2, 5), (3, 7), (2, 7), (1, 5), (3, 8), (3, 9), (11, 11)]:
 
             %     for range_type_2 in range_types if bound_type == 'Int' else [r for r in range_types if 'Countable' not in r]:
             %         closed_2 = 'Closed' in range_type_2
             do {
                 let b: ${range_type_2}<${bound_type}> = ${lower}${'...' if closed_2 else '..<'}${upper}
-                %     if lower < 2:
+                %     if lower == 11 and upper == 11:
+                %         contained = not closed_2 
+                %     elif lower < 2:
                 %         contained = False
                 %     elif upper < 7:
                 %         contained = True
@@ -48,6 +50,8 @@ class RangeTests: XCTestCase {
                 %         end
                 %     elif upper >= 9:
                 %         contained = False
+                %     else:
+                %         raise Exception('Never reaches here.')
                 %     end
                 XCTAssert${'True' if contained else 'False'}(a.contains(b))
                 %

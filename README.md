@@ -6,8 +6,11 @@ _RangeContains_ provides `contains` methods for `Range`, `ClosedRange`, `Countab
 let a: ClosedRange<Int> = 2...7
 a.contains(3...5) // `true`
 a.contains(3...7) // also `true`
-a.contains(3..<8) // still `true` because all values contained in `3..<8` are also in `a`
+a.contains(3..<8) // still `true` because all elements contained in `3..<8` are also in `a`
 a.contains(3..<9) // `false`
+a.contains(11..<11) // `true` because `11..<11` has no element
+a.contains(11...11) // `false`
+
 
 let b: ClosedRange<Float> = 2...7
 b.contains(3...5) // `true`

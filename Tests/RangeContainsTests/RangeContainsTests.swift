@@ -6,13 +6,17 @@ class RangeContainsTests: XCTestCase {
         let a: ClosedRange<Int> = 2...7
         _ = a.contains(3...5) // `true`
         _ = a.contains(3...7) // also `true`
-        _ = a.contains(3..<8) // still `true` because all values contained in `3..<8` are also in `a`
+        _ = a.contains(3..<8) // still `true` because all elements contained in `3..<8` are also in `a`
         _ = a.contains(3..<9) // `false`
+        _ = a.contains(11..<11) // `true` because `11..<11` has no element
+        _ = a.contains(11...11) // `false`
 
         XCTAssertTrue(a.contains(3...5))
         XCTAssertTrue(a.contains(3...7))
         XCTAssertTrue(a.contains(3..<8))
         XCTAssertFalse(a.contains(3..<9))
+        XCTAssertTrue(a.contains(11..<11))
+        XCTAssertFalse(a.contains(11...11))
         
         let b: ClosedRange<Float> = 2...7
         _ = b.contains(3...5) // `true`
