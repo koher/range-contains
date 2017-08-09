@@ -12,7 +12,7 @@ class RangeTests: XCTestCase {
     %     else:
 
     %     end
-    func test${range_type_1}Contains() {
+    func test${range_type_1}IsSupersetOf() {
         % first_2 = True
         % for bound_type in ['Int'] if countable_1 else ['Int', 'Float']:
         %     if first_2:
@@ -53,7 +53,7 @@ class RangeTests: XCTestCase {
                 %     else:
                 %         raise Exception('Never reaches here.')
                 %     end
-                XCTAssert${'True' if contained else 'False'}(a.contains(b))
+                XCTAssert${'True' if contained else 'False'}(a.isSuperset(of: b))
                 %
                 %     if 'Countable' in range_type_2:
                 XCTAssert${'True' if contained else 'False'}(b.reduce(true) { $0 && a.contains($1) })
@@ -70,7 +70,7 @@ class RangeTests: XCTestCase {
 
     static var allTests = [
         % for range_type in range_types:
-        ("test${range_type}Contains", test${range_type}Contains),
+        ("test${range_type}IsSupersetOf", test${range_type}IsSupersetOf),
         % end
     ]
 }

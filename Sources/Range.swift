@@ -1,80 +1,80 @@
 extension CountableRange {
-    public func contains(_ range: CountableRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound || range.isEmpty
+    public func isSuperset(of other: CountableRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound || other.isEmpty
     }
 
-    public func contains(_ range: CountableClosedRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound < upperBound
+    public func isSuperset(of other: CountableClosedRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound < upperBound
     }
 
-    public func contains(_ range: Range<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound || range.isEmpty
+    public func isSuperset(of other: Range<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound || other.isEmpty
     }
 
-    public func contains(_ range: ClosedRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound < upperBound
+    public func isSuperset(of other: ClosedRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound < upperBound
     }
 }
 
 extension CountableClosedRange {
-    public func contains(_ range: CountableRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound.advanced(by: 1) || range.isEmpty
+    public func isSuperset(of other: CountableRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound.advanced(by: 1) || other.isEmpty
     }
 
-    public func contains(_ range: CountableClosedRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound
+    public func isSuperset(of other: CountableClosedRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound
     }
 
-    public func contains(_ range: Range<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound.advanced(by: 1) || range.isEmpty
+    public func isSuperset(of other: Range<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound.advanced(by: 1) || other.isEmpty
     }
 
-    public func contains(_ range: ClosedRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound
+    public func isSuperset(of other: ClosedRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound
     }
 }
 
 extension Range where Bound: Strideable, Bound.Stride: SignedInteger {
-    public func contains(_ range: CountableRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound || range.isEmpty
+    public func isSuperset(of other: CountableRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound || other.isEmpty
     }
 
-    public func contains(_ range: CountableClosedRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound < upperBound
+    public func isSuperset(of other: CountableClosedRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound < upperBound
     }
 }
 
 extension Range {
-    public func contains(_ range: Range<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound || range.isEmpty
+    public func isSuperset(of other: Range<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound || other.isEmpty
     }
 
-    public func contains(_ range: ClosedRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound < upperBound
+    public func isSuperset(of other: ClosedRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound < upperBound
     }
 }
 
 extension ClosedRange where Bound: Strideable, Bound.Stride: SignedInteger {
-    public func contains(_ range: CountableRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound.advanced(by: 1) || range.isEmpty
+    public func isSuperset(of other: CountableRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound.advanced(by: 1) || other.isEmpty
     }
 
-    public func contains(_ range: CountableClosedRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound
+    public func isSuperset(of other: CountableClosedRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound
     }
 
-    public func contains(_ range: Range<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound.advanced(by: 1) || range.isEmpty
+    public func isSuperset(of other: Range<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound.advanced(by: 1) || other.isEmpty
     }
 }
 
 extension ClosedRange {
-    public func contains(_ range: Range<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound || range.isEmpty
+    public func isSuperset(of other: Range<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound || other.isEmpty
     }
 
-    public func contains(_ range: ClosedRange<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound
+    public func isSuperset(of other: ClosedRange<Bound>) -> Bool {
+        return lowerBound <= other.lowerBound && other.upperBound <= upperBound
     }
 }
 
