@@ -34,7 +34,7 @@ extension CountableClosedRange {
     }
 }
 
-extension Range where Bound: Strideable, Bound.Stride: SignedInteger {
+extension Range where Bound: _Strideable, Bound.Stride: SignedInteger {
     public func isSuperset(of other: CountableRange<Bound>) -> Bool {
         return lowerBound <= other.lowerBound && other.upperBound <= upperBound || other.isEmpty
     }
@@ -54,7 +54,7 @@ extension Range {
     }
 }
 
-extension ClosedRange where Bound: Strideable, Bound.Stride: SignedInteger {
+extension ClosedRange where Bound: _Strideable, Bound.Stride: SignedInteger {
     public func isSuperset(of other: CountableRange<Bound>) -> Bool {
         return lowerBound <= other.lowerBound && other.upperBound <= upperBound.advanced(by: 1) || other.isEmpty
     }

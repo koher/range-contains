@@ -14,13 +14,12 @@ a.isSuperset(of: 11...11) // `false`
 let b: ClosedRange<Float> = 2...7
 b.isSuperset(of: 3...5) // `true`
 b.isSuperset(of: 3...7) // `true`
-b.isSuperset(of: 3..<8) // `false` because { x | 7.0 < x < 8.0 } is not contained in `a`
+b.isSuperset(of: 3..<8) // `false` because { x | 7.0 < x < 8.0 } is not contained in `b`
 
 let c: Range<Float> = 2..<7
 c.isSuperset(of: 3...5) // `true`
 c.isSuperset(of: 3..<7) // `true`
-c.isSuperset(of: 3...7) // `false` because 7.0 is not contained in `a`
-```
+c.isSuperset(of: 3...7) // `false` because 7.0 is not contained in `c`
 
 ## Lisence
 

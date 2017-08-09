@@ -21,7 +21,7 @@ class RangeContainsTests: XCTestCase {
         let b: ClosedRange<Float> = 2...7
         _ = b.isSuperset(of: 3...5) // `true`
         _ = b.isSuperset(of: 3...7) // `true`
-        _ = b.isSuperset(of: 3..<8) // `false` because { x | 7.0 < x < 8.0 } is not contained in `a`
+        _ = b.isSuperset(of: 3..<8) // `false` because { x | 7.0 < x < 8.0 } is not contained in `b`
         
         XCTAssertTrue(b.isSuperset(of: 3...5))
         XCTAssertTrue(b.isSuperset(of: 3...7))
@@ -30,7 +30,7 @@ class RangeContainsTests: XCTestCase {
         let c: Range<Float> = 2..<7
         _ = c.isSuperset(of: 3...5) // `true`
         _ = c.isSuperset(of: 3..<7) // `true`
-        _ = c.isSuperset(of: 3...7) // `false` because 7.0 is not contained in `a`
+        _ = c.isSuperset(of: 3...7) // `false` because 7.0 is not contained in `c`
         
         XCTAssertTrue(c.isSuperset(of: 3...5))
         XCTAssertTrue(c.isSuperset(of: 3..<7))
