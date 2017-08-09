@@ -29,26 +29,27 @@ class RangeTests: XCTestCase {
             do {
                 let b: ${range_type_2}<${bound_type}> = ${lower}${'...' if closed_2 else '..<'}${upper}
                 %     if lower < 2:
-                XCTAssertFalse(a.contains(b))
+                %         contained = False
                 %     elif upper < 7:
-                XCTAssertTrue(a.contains(b))
+                %         contained = True
                 %     elif upper == 7:
                 %         if closed_1:
-                XCTAssertTrue(a.contains(b))
+                %             contained = True
                 %         elif closed_2:
-                XCTAssertFalse(a.contains(b))
+                %             contained = False
                 %         else:
-                XCTAssertTrue(a.contains(b))
+                %             contained = True
                 %         end
                 %     elif upper == 8:
                 %         if closed_1 and not closed_2 and bound_type == 'Int':
-                XCTAssertTrue(a.contains(b))
+                %             contained = True
                 %         else:
-                XCTAssertFalse(a.contains(b))
+                %             contained = False
                 %         end
                 %     elif upper >= 9:
-                XCTAssertFalse(a.contains(b))
+                %         contained = False
                 %     end
+                XCTAssert${'True' if contained else 'False'}(a.contains(b))
             }
         %         end
         %     end
