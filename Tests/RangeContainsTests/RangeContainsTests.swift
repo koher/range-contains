@@ -21,7 +21,7 @@ class RangeContainsTests: XCTestCase {
         let b: ClosedRange<Float> = 2...7
         _ = b.contains(3...5) // `true`
         _ = b.contains(3...7) // `true`
-        _ = b.contains(3..<8) // `false` because { x | 7.0 < x < 8.0 } is not contained in `a`
+        _ = b.contains(3..<8) // `false` because { x | 7.0 < x < 8.0 } is not contained in `b`
         
         XCTAssertTrue(b.contains(3...5))
         XCTAssertTrue(b.contains(3...7))
@@ -30,7 +30,7 @@ class RangeContainsTests: XCTestCase {
         let c: Range<Float> = 2..<7
         _ = c.contains(3...5) // `true`
         _ = c.contains(3..<7) // `true`
-        _ = c.contains(3...7) // `false` because 7.0 is not contained in `a`
+        _ = c.contains(3...7) // `false` because 7.0 is not contained in `c`
         
         XCTAssertTrue(c.contains(3...5))
         XCTAssertTrue(c.contains(3..<7))
