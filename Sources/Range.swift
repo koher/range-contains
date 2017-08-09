@@ -8,7 +8,7 @@ extension CountableRange {
     }
 
     public func contains(_ range: Range<Bound>) -> Bool {
-        return lowerBound <= range.lowerBound && range.upperBound <= upperBound || range.lowerBound == range.upperBound
+        return lowerBound <= range.lowerBound && range.upperBound <= upperBound || range.isEmpty
     }
 
     public func contains(_ range: ClosedRange<Bound>) -> Bool {
