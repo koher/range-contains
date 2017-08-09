@@ -50,6 +50,12 @@ class RangeTests: XCTestCase {
                 %         contained = False
                 %     end
                 XCTAssert${'True' if contained else 'False'}(a.contains(b))
+                %
+                %     if 'Countable' in range_type_2:
+                XCTAssert${'True' if contained else 'False'}(b.reduce(true) { $0 && a.contains($1) })
+                %     elif bound_type == 'Int':
+                XCTAssert${'True' if contained else 'False'}(${'Countable' + range_type_2}(b).reduce(true) { $0 && a.contains($1) })
+                %     end
             }
         %         end
         %     end
